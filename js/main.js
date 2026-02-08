@@ -92,3 +92,78 @@ function mostrarCarrito() {
 
 //PRUEBA: carrito vacío por ahora
 mostrarCarrito();
+
+//8. FUNCIÓN: Agregar producto al carrito
+
+function agregarAlCarrito(){
+  //Mostrar productos para que el usuario elija
+  listarProductos();
+
+  //Preguntar al usuario que producto quiere comprar
+  const idTexto = prompt("Ingrese el ID del producto que desea comprar");
+  const idProducto = number(idTexto);
+
+  //Validar que sea número válido
+  if (isNaN(idProducto) || idProducto <= 0) {
+    console.log("❌ El ID debe ser un número positivo");
+    return;
+  }
+
+  //Buscar producto
+  const producto = buscarProductoPorId(idProducto);
+  if (!producto) {
+    console.log("❌ Error: Producto no encontrado");
+    return;
+  }
+
+   //Pedir Cantidad
+   const cantidadTexto = prompt(`Ingrese la cantidad de unidades: ${producto.nombre}`);
+   const cantidad = Number(cantidadTexto);
+
+   //Validar cantidad
+   if (isNaN(cantidad) || cantidad <= 0) {
+    console.log("❌ La cantidad debe ser un número positivo");
+    return;
+  }
+
+  //Validar stock suficiente
+  if (cantidad > producto.stock) {
+    console.log("❌ No hay stock suficiente. Disponible: ${producto.stock}");
+    return;
+  }
+
+  //Buscar si ya existe en carrito
+  const itemExistente = carrito.find(item => item.idProducto === idProducto);
+
+  if (itemExistente) {
+    //Si existe, aumentar la cantidad
+    itemExistente.cantidad += cantidad;
+    console.log(`Se agregaron ${cantidad} unidades de ${producto.nombre} al carrito`);
+  } else {
+    //Crear nuevo item
+    const nuevoItem = {
+      idProducto: producto.id,
+      nombre: producto.nombre,
+      precioUnitario: producto.precio,
+      cantidad: cantidad
+    };  
+    carrito.push(nuevoItem);
+    console.log(`Se agrega ${producto.nombre} al carrito`);
+    }
+
+
+    //Actualizar Stock
+    producto.stock -= cantidad;
+
+    //Mostrar carrito actualizado
+    mostrarCarrito();
+    console.log("\nPresiona F12 → Console para continuar...");
+  }
+
+ 
+
+
+
+  
+
+
