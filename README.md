@@ -49,25 +49,11 @@ Para probar este proyecto no necesitas instalar nada, solo un navegador web.
 5.  Pegar el código JavaScript y presionar `Enter`.
 6.  Seguir las instrucciones del menú emergente.
 
-## 📸 Capturas de Pantalla (Ejemplo de uso)
 
-**1. Menú Principal**
-> El usuario selecciona una opción mediante un número.
-
-**2. Resumen de Compra**
-> Formato de salida en consola:
-```text
-🧾 ===== BOLETA FINAL =====
-📦 Detalle:     10 Laptop: $5.000.000 + 2 Mouse: $40.000
------------------------------
-Subtotal:       $5.040.000
-IVA (19%):      $957.600
-TOTAL A PAGAR:  $5.997.600
-=============================
-📂 Estructura del Proyecto
+##📂 Estructura del Proyecto
 bash
 ├── README.md          # Documentación del proyecto
-├── script.js          # Lógica principal de la aplicación
+├── main.js          # Lógica principal de la aplicación
 └── index.html         # (Opcional) Contenedor para vincular el script
 
 
