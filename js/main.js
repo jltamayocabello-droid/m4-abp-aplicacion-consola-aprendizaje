@@ -39,7 +39,7 @@ function calcularTotal() {
   return total;
 }
 
-// 6. GENERAR RESUMEN CON FORMATO PERSONALIZADO
+// 6. GENERAR RESUMEN 
 function mostrarResumenFormateado() {
   if (carrito.length === 0) {
     console.log("Nada");
@@ -61,7 +61,7 @@ function mostrarCarrito() {
     return false;
   }
 
-  // Usamos la nueva función de formato aquí
+  // Función Formato
   mostrarResumenFormateado();
 
   console.log("---------------------------------");

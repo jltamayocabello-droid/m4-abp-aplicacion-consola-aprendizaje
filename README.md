@@ -1,115 +1,75 @@
-Proyecto: Aplicación de consola
+# 🛒 Proyecto Módulo 4: Carrito de Compras (Console App)
 
-Módulo: Fundamentos de programación en Javascript
+![Language](https://img.shields.io/badge/Language-JavaScript-yellow?style=flat&logo=javascript)
+![Environment](https://img.shields.io/badge/Environment-Browser%20Console-orange)
+![Status](https://img.shields.io/badge/Status-Completed-success)
 
-Situación inicial 📍
-📌Unidad solicitante: Equipo de desarrollo de una plataforma de aprendizaje
-interactivo.
-Un equipo de desarrollo ha sido encargado de crear una aplicación en JavaScript
-que permita a los usuarios realizar operaciones básicas y trabajar con
-estructuras fundamentales del lenguaje. Se busca desarrollar habilidades en el
-lenguaje JavaScript a través de una práctica aplicada, implementando los
-conceptos fundamentales del lenguaje.
-Nuestro objetivo 📋
-El objetivo del proyecto es desarrollar una aplicación en consola que permita a los
-usuarios:
-→ Realizar operaciones matemáticas básicas.
-→ Implementar estructuras condicionales y de bucles.
-→ Usar funciones para modularizar el código.
-→ Trabajar con arreglos y objetos.
-El código deberá estar estructurado de manera clara según las mejores prácticas
-de desarrollo en JavaScript.
-Requerimientos
-La aplicación deberá cumplir con los siguientes requisitos:
-→ Requerimientos generales:
-↪ Debe ejecutarse en la consola del navegador.
-↪ Debe permitir al usuario ingresar datos mediante prompt o
-variables predefinidas.
-↪ Debe realizar al menos tres operaciones diferentes usando
-funciones.
-↪ Debe utilizar condicionales y estructuras de repetición.
+Aplicación desarrollada en JavaScript (ES6) que simula un sistema de gestión de compras a través de la consola del navegador. Este proyecto forma parte de la evaluación del **Módulo 4: Fundamentos de Programación en JavaScript**.
 
-Pág. 2
+## 📖 Descripción del Proyecto
 
-↪ Debe incluir arreglos y objetos para almacenar y manipular datos.
-→ Requerimientos técnicos:
-↪ Funciones y modularización: Separación del código en funciones
-reutilizables.
-↪ Uso de estructuras de control: Implementación de if, switch, for,
-while, según corresponda.
-↪ Uso de arreglos y objetos: Manipulación de datos utilizando estos
-conceptos.
-↪ Validaciones: Control de entradas del usuario para evitar errores.
+El objetivo de este proyecto es consolidar los conocimientos fundamentales de lógica de programación. La aplicación permite a un usuario interactuar con un catálogo de productos tecnológicos, agregarlos a un carrito de compras validando stock, y generar una boleta final con detalles y cálculos de impuestos.
 
-Paso a paso 👣
-Este proyecto será avanzado paso a paso en cada clase y podrás completarlo
-progresivamente a través de los espacios asincrónicos en la herramienta de
-VISUAL STUDIO CODE. También tendrás espacios de consulta en las clases
-sincrónicas para despejar tus dudas.
-1. Introducción al lenguaje JavaScript (Lección #1)
-↪ 📌 Objetivo: Familiarizarse con la sintaxis básica de JavaScript y
-ejecutar código en la consola.
-↪ 📍 Tareas a desarrollar:
-○ Escribir un script simple que muestre mensajes en la consola
-con console.log().
-○ Usar prompt() para recibir datos del usuario.
-○ Mostrar mensajes personalizados con alert().
-2. Variables, expresiones y sentencias condicionales (Lección #2)
-↪ 📌 Objetivo: Aprender a manejar variables, operadores y
-estructuras condicionales.
-↪ 📍 Tareas a desarrollar:
-○ Definir variables utilizando let y const.
-○ Pedir al usuario que ingrese dos números y almacenarlos en
-variables.
+Se ha implementado una arquitectura basada en **Arreglos de Objetos**, donde cada ítem del carrito posee sus propios métodos para calcular totales, cumpliendo con los requisitos de Programación Orientada a Objetos (POO) básica.
 
-Pág. 3
+## ⚙️ Funcionalidades Principales
 
-○ Implementar operaciones matemáticas (suma, resta,
-multiplicación, división).
-○ Usar estructuras condicionales (if, else, switch) para
-evaluar diferentes situaciones.
+La aplicación cuenta con un menú interactivo (`prompt`) que permite:
 
-3. Arreglos y ciclos (Lección #3)
-↪ 📌 Objetivo: Introducir el uso de arreglos y estructuras de repetición.
-↪ 📍 Tareas a desarrollar:
-○ Crear un arreglo con una lista de elementos.
-○ Usar for y while para recorrer arreglos.
-○ Implementar una función que filtre elementos según una
-condición.
+- ✅ **Catálogo Dinámico:** Visualización de productos con stock en tiempo real.
+- ✅ **Gestión de Stock:** 
+  - Validación de disponibilidad antes de la venta.
+  - Descuento de unidades al comprar.
+  - Restauración de unidades al inventario si se elimina un producto del carrito.
+- ✅ **Carrito Inteligente:** Agrupación automática de productos repetidos (sumando cantidades en lugar de duplicar filas).
+- ✅ **Formato de Resumen:** Visualización detallada en formato `Cantidad Producto: $Subtotal`.
+- ✅ **Cálculos Matemáticos:** 
+  - Cálculo de subtotales mediante métodos de objeto.
+  - Cálculo de IVA (19%) y Total Final.
+- ✅ **Persistencia Visual:** Mantiene el historial de operaciones en la consola para referencia del usuario.
 
-4. Funciones en JavaScript (Lección #4)
-↪ 📌 Objetivo: Modularizar el código utilizando funciones.
-↪ 📍 Tareas a desarrollar:
-○ Crear funciones para cada operación matemática.
-○ Implementar una función que reciba parámetros y retorne un
-resultado.
-○ Llamar funciones dentro de otras funciones para optimizar el
-código.
+## 🛠️ Tecnologías y Conceptos Aplicados
 
-5. Conceptos básicos de objetos en JavaScript (Lección #5)
-↪ 📌 Objetivo: Utilizar objetos para organizar datos de manera
-estructurada.
-↪ 📍 Tareas a desarrollar:
-○ Crear un objeto con propiedades y valores.
-○ Implementar métodos dentro de un objeto.
-○ Usar un arreglo de objetos y recorrerlo con map() o
-forEach().
-¿Qué vamos a validar? 🔍
-Para evaluar el trabajo, se tendrán en cuenta los siguientes aspectos:
+Este proyecto pone en práctica los siguientes conceptos técnicos:
 
-Pág. 4
+*   **Estructuras de Datos:** `Array` y `Object`.
+*   **Métodos de Array:** `.map()`, `.filter()`, `.find()`, `.findIndex()`, `.splice()`, `.forEach()`.
+*   **Funciones:** Modularización del código y funciones dentro de objetos (Métodos).
+*   **Control de Flujo:** Bucles `while` para el menú principal y `switch` para la selección de opciones.
+*   **Interacción:** Uso de `prompt()`, `alert()` y `console.log()` formateado.
 
-→ Aspectos técnicos:
-↪ Correcta aplicación de los fundamentos de JavaScript.
-↪ Uso adecuado de funciones para modularizar el código.
-↪ Implementación de estructuras de control correctamente.
-↪ Manejo adecuado de arreglos y objetos.
-→ Aspectos estructurales:
-↪ Legibilidad y organización del código.
-↪ Uso de buenas prácticas en nombres de variables y funciones.
-↪ Comentarios explicativos en el código.
-→ Aspectos funcionales:
-↪ La aplicación debe ejecutarse sin errores en la consola.
-↪ Todas las funcionalidades solicitadas deben estar implementadas.
-↪ Se debe proporcionar una breve documentación con una explicación
-del código.
+## 🚀 Instrucciones de Ejecución
+
+Para probar este proyecto no necesitas instalar nada, solo un navegador web.
+
+1.  **Clonar o descargar** este repositorio (o copiar el código del archivo `script.js`).
+2.  Abrir el navegador (Google Chrome, Firefox, Edge, etc.).
+3.  Abrir las **Herramientas de Desarrollador** (Presiona `F12` o `Ctrl + Shift + I`).
+4.  Ir a la pestaña **Console (Consola)**.
+5.  Pegar el código JavaScript y presionar `Enter`.
+6.  Seguir las instrucciones del menú emergente.
+
+## 📸 Capturas de Pantalla (Ejemplo de uso)
+
+**1. Menú Principal**
+> El usuario selecciona una opción mediante un número.
+
+**2. Resumen de Compra**
+> Formato de salida en consola:
+```text
+🧾 ===== BOLETA FINAL =====
+📦 Detalle:     10 Laptop: $5.000.000 + 2 Mouse: $40.000
+-----------------------------
+Subtotal:       $5.040.000
+IVA (19%):      $957.600
+TOTAL A PAGAR:  $5.997.600
+=============================
+📂 Estructura del Proyecto
+bash
+├── README.md          # Documentación del proyecto
+├── script.js          # Lógica principal de la aplicación
+└── index.html         # (Opcional) Contenedor para vincular el script
+✒️ Autor
+Jorge Tamayo
+Estudiante de Desarrollo Front-End Trainee - SENCE
+Repositorio GitHub: https://github.com/jltamayocabello-droid/m4-abp-aplicacion-consola-aprendizaje
