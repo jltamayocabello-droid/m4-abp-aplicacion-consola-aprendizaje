@@ -69,7 +69,16 @@ bash
 ├── README.md          # Documentación del proyecto
 ├── script.js          # Lógica principal de la aplicación
 └── index.html         # (Opcional) Contenedor para vincular el script
-✒️ Autor
-Jorge Tamayo
-Estudiante de Desarrollo Front-End Trainee - SENCE
-Repositorio GitHub: https://github.com/jltamayocabello-droid/m4-abp-aplicacion-consola-aprendizaje
+
+
+##Repositorio GitHub
+
+🔗 https://github.com/jltamayocabello-droid/m4-abp-aplicacion-consola-aprendizaje
+
+##✒️ Autor
+
+**Jorge Tamayo**
+
+*Estudiante de Desarrollo Front-End Trainee - SENCE*
+
+
