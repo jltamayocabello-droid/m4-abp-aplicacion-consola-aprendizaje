@@ -2,7 +2,7 @@
 
 ![Language](https://img.shields.io/badge/Lenguaje-JavaScript-yellow?style=flat&logo=javascript)
 ![Environment](https://img.shields.io/badge/Entorno-Navegador%20Consola-orange)
-![Status](https://img.shields.io/badge/Estado-Finalizado)
+
 
 Aplicación desarrollada en JavaScript (ES6) que simula un sistema de gestión de compras a través de la consola del navegador. Este proyecto forma parte de la evaluación del **Módulo 4: Fundamentos de Programación en JavaScript**.
 
