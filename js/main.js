@@ -14,31 +14,33 @@ const productos = [
 // 2. CARRITO DE COMPRAS
 const carrito = [];
 
-// 3. LISTAR PRODUCTOS DISPONIBLES
+const crearItemCarrito = (producto, cantidad) => ({
+  idProducto: producto.id,
+  nombre: producto.nombre,
+  precioUnitario: producto.precio,
+  cantidad: cantidad,
+  obtenerSubtotal() {
+    return this.precioUnitario * this.cantidad;
+  }
+});
+
+// 3. LISTAR PRODUCTOS
 function listarProductos() {
   console.log("\n⬇️ ===== PRODUCTOS DISPONIBLES =====");
-  productos.forEach((producto) => {
-    console.log(
-      `${producto.id}. ${producto.nombre.padEnd(12)} | Precio: $${producto.precio.toLocaleString()} | Stock: ${producto.stock}`
-    );
+  productos.forEach(({ id, nombre, precio, stock }) => { // ✅ Destructuring para código más limpio
+    console.log(`${id}. ${nombre.padEnd(12)} | Precio: $${precio.toLocaleString()} | Stock: ${stock}`);
   });
   console.log("=====================================\n");
 }
 
-// 4. BUSCAR POR ID
-function buscarProductoPorId(idBuscado) {
-  return productos.find((producto) => producto.id === idBuscado);
-}
+// 4. BUSQUEDA
+const buscarProductoPorId = (id) => productos.find((p) => p.id === id); // ✅ Arrow function simple
 
 // 5. CALCULAR TOTAL
 function calcularTotal() {
-  let total = 0;
-  for (const item of carrito) {
-    total += item.obtenerSubtotal();
-  }
-  return total;
+  // ✅ Uso de reduce en lugar de bucle for (más declarativo)
+  return carrito.reduce((total, item) => total + item.obtenerSubtotal(), 0);
 }
-
 // 6. GENERAR RESUMEN 
 function mostrarResumenFormateado() {
   if (carrito.length === 0) {
