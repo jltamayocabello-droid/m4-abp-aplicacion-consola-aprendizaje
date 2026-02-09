@@ -41,7 +41,7 @@ Este proyecto pone en práctica los siguientes conceptos técnicos:
 
 Para probar este proyecto no necesitas instalar nada, solo un navegador web.
 
-1.  **Clonar o descargar** este repositorio (o copiar el código del archivo `script.js`).
+1.  **Clonar o descargar** este repositorio (o copiar el código del archivo `main.js`).
 2.  Abrir el navegador (Google Chrome, Firefox, Edge, etc.).
 3.  Abrir las **Herramientas de Desarrollador** (Presiona `F12` o `Ctrl + Shift + I`).
 4.  Ir a la pestaña **Console (Consola)**.
