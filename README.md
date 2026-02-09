@@ -58,7 +58,7 @@ Para probar este proyecto no necesitas instalar nada, solo un navegador web.
 
 ## 🔗 Repositorio GitHub
 Puedes ver el código fuente completo aquí:
-https://github.com/jltamayocabello-droid/m4-abp-aplicacion-consola-aprendizaje
+https://github.com/jltamayocabello-droid/m4-abp-aplicacion-consola-carrito-compras
 
 ## ✒️ Autor
 
