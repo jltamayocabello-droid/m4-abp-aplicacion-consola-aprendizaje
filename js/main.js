@@ -14,7 +14,7 @@ const productos = [
 // 2. CARRITO DE COMPRAS
 const carrito = [];
 
-// 3. FUNCIÓN: Listar productos disponibles
+// 3. LISTAR PRODUCTOS DISPONIBLES
 function listarProductos() {
   console.log("\n⬇️ ===== PRODUCTOS DISPONIBLES =====");
   productos.forEach((producto) => {
@@ -25,12 +25,12 @@ function listarProductos() {
   console.log("=====================================\n");
 }
 
-// 4. FUNCIÓN: Buscar producto por ID
+// 4. BUSCAR POR ID
 function buscarProductoPorId(idBuscado) {
   return productos.find((producto) => producto.id === idBuscado);
 }
 
-// 5. FUNCIÓN: Calcular total del carrito
+// 5. CALCULAR TOTAL
 function calcularTotal() {
   let total = 0;
   for (const item of carrito) {
@@ -39,16 +39,21 @@ function calcularTotal() {
   return total;
 }
 
-// 6. FUNCIÓN: Generar resumen de items
-function generarResumenItems() {
-  if (carrito.length === 0) return "Nada";
-  // Suma de items a comprar
-  return carrito.map(item => `${item.cantidad} ${item.nombre}`).join(" + ");
+// 6. GENERAR RESUMEN CON FORMATO PERSONALIZADO
+function mostrarResumenFormateado() {
+  if (carrito.length === 0) {
+    console.log("Nada");
+    return;
+  }
+  // Recorre el carrito e imprime cada línea con el formato pedido:
+  // "10 Laptop: $5.000.000"
+  carrito.forEach(item => {
+    console.log(`${item.cantidad} ${item.nombre}: $${item.obtenerSubtotal().toLocaleString()}`);
+  });
 }
 
-// 7. FUNCIÓN: Mostrar contenido del carrito
+// 7. MOSTRAR CARRITO
 function mostrarCarrito() {
-  
   console.log("\n🛒 ===== TU CARRITO ACTUAL =====");
 
   if (carrito.length === 0) {
@@ -56,26 +61,19 @@ function mostrarCarrito() {
     return false;
   }
 
-  carrito.forEach((item) => {
-    console.log(
-      `   ▪ ${item.nombre.padEnd(12)} x${item.cantidad} | Subtotal: $${item.obtenerSubtotal().toLocaleString()}`
-    );
-  });
+  // Usamos la nueva función de formato aquí
+  mostrarResumenFormateado();
 
-  // Mostramos la suma visualmente
   console.log("---------------------------------");
-  console.log(`📦 Resumen: ${generarResumenItems()}`);
-  console.log(`💰 TOTAL NETO: $${calcularTotal().toLocaleString()}`);
+  console.log(`💰 TOTAL: $${calcularTotal().toLocaleString()}`);
   console.log("=================================\n");
   return true;
 }
 
-// 8. FUNCIÓN: Agregar producto al carrito
+// 8. AGREGAR AL CARRITO
 function agregarAlCarrito() {
- 
   listarProductos();
 
-  // Validaciones
   const idInput = prompt("Ingrese el ID del producto a comprar:");
   const idProducto = Number(idInput);
   const producto = buscarProductoPorId(idProducto);
@@ -84,7 +82,7 @@ function agregarAlCarrito() {
     console.log("❌ Error: Producto no encontrado.");
     return;
   }
-  // Cantidad de productos a comprar
+
   const cantidadInput = prompt(`¿Cuántos "${producto.nombre}" deseas llevar? (Disponibles: ${producto.stock})`);
   const cantidad = Number(cantidadInput);
 
@@ -93,16 +91,16 @@ function agregarAlCarrito() {
     return;
   }
   if (cantidad > producto.stock) {
-    console.log(`❌ Error: Solo quedan ${producto.stock} unidades de ${producto.nombre}.`);
+    console.log(`❌ Error: Stock insuficiente.`);
     return;
   }
 
-  // Lógica de suma en el array
+  // Buscar si ya existe
   const itemExistente = carrito.find((item) => item.idProducto === idProducto);
 
   if (itemExistente) {
     itemExistente.cantidad += cantidad;
-    console.log(`✅ Actualizado: Ahora tienes ${itemExistente.cantidad} x ${producto.nombre} en el carrito.`);
+    console.log(`✅ Agregaste ${cantidad} más a ${producto.nombre}.`);
   } else {
     const nuevoItem = {
       idProducto: producto.id,
@@ -114,64 +112,59 @@ function agregarAlCarrito() {
       }
     };
     carrito.push(nuevoItem);
-    console.log(`✅ Agregado: ${cantidad} x ${producto.nombre}.`);
+    console.log(`✅ Agregado: ${producto.nombre}.`);
   }
 
-  // Descontar stock
   producto.stock -= cantidad;
 }
 
-// 9. FUNCIÓN: Eliminar producto
+// 9. ELIMINAR DEL CARRITO
 function eliminarDelCarrito() {
   if (!mostrarCarrito()) return;
 
   const nombreEliminar = prompt("Escribe el NOMBRE del producto a eliminar:");
-  
   const indice = carrito.findIndex(item => item.nombre.toLowerCase() === nombreEliminar.toLowerCase());
 
   if (indice !== -1) {
     const item = carrito[indice];
-    
-    // Devolver stock
     const productoOriginal = buscarProductoPorId(item.idProducto);
-    if (productoOriginal) {
-      productoOriginal.stock += item.cantidad;
-    }
+    
+    if (productoOriginal) productoOriginal.stock += item.cantidad;
 
     carrito.splice(indice, 1);
-    console.log(`🗑️ Eliminado: ${item.nombre} sacado del carrito.`);
+    console.log(`🗑️ Eliminado: ${item.nombre}.`);
   } else {
-    console.log("❌ Producto no encontrado en el carrito (Revisa mayúsculas/minúsculas).");
+    console.log("❌ No encontrado.");
   }
 }
 
-// 10. FUNCIÓN: Finalizar compra con Resumen
+// 10. FINALIZAR COMPRA
 function finalizarCompra() {
   if (carrito.length === 0) {
-    console.log("⚠️ El carrito está vacío.");
+    console.log("⚠️ Carrito vacío.");
     return;
   }
 
   const totalNeto = calcularTotal();
   const iva = totalNeto * 0.19;
   const totalFinal = totalNeto + iva;
-  
-  // Aquí usamos la función que crea el texto "10 laptop + 3 parlantes"
-  const resumenTexto = generarResumenItems();
 
   console.log("\n🧾 ===== BOLETA FINAL =====");
-  console.log(`📦 Detalle:     ${resumenTexto}`); // <--- LO QUE PEDISTE
+  
+  // Aquí usamos el formato solicitado para el detalle
+  mostrarResumenFormateado(); 
+
   console.log("-----------------------------");
-  console.log(`Subtotal:       $${totalNeto.toLocaleString()}`);
-  console.log(`IVA (19%):      $${iva.toLocaleString()}`);
-  console.log(`TOTAL A PAGAR:  $${totalFinal.toLocaleString()}`);
+  console.log(`Subtotal:      $${totalNeto.toLocaleString()}`);
+  console.log(`IVA (19%):     $${iva.toLocaleString()}`);
+  console.log(`TOTAL A PAGAR: $${totalFinal.toLocaleString()}`);
   console.log("=============================");
   console.log("¡Gracias por su compra!\n");
 
-  carrito.length = 0; 
+  carrito.length = 0;
 }
 
-// 11. MENÚ PRINCIPAL
+// 11. MENÚ
 function mostrarMenu() {
   return prompt(
     `🛒 MENU PRINCIPAL\n\n` +
@@ -180,48 +173,28 @@ function mostrarMenu() {
     `3. Ver Carrito\n` +
     `4. Eliminar del Carrito\n` +
     `5. Finalizar Compra\n` +
-    `0. Salir\n\n` +
-    `Escribe el número de opción:`
+    `0. Salir`
   );
 }
 
-// 12. LOOP PRINCIPAL
+// 12. INICIAR
 function iniciarCarrito() {
   let opcion = "";
-  console.log("👋 Bienvenido a la Tienda (Consola Interactiva)");
+  console.log("👋 Bienvenido a la Tienda");
 
   while (opcion !== "0") {
     opcion = mostrarMenu();
-
-    // Sin console.clear() aquí para mantener historial
     switch (opcion) {
-      case "1":
-        listarProductos();
-        break;
-      case "2":
-        agregarAlCarrito();
-        break;
-      case "3":
-        mostrarCarrito();
-        break;
-      case "4":
-        eliminarDelCarrito();
-        break;
-      case "5":
-        finalizarCompra();
-        break;
-      case "0":
-        console.log("👋 Saliendo... ¡Hasta pronto!");
-        break;
-      case null: 
-        opcion = "0";
-        console.log("👋 Operación cancelada.");
-        break;
-      default:
-        console.log("❌ Opción no válida, intenta de nuevo.");
+      case "1": listarProductos(); break;
+      case "2": agregarAlCarrito(); break;
+      case "3": mostrarCarrito(); break;
+      case "4": eliminarDelCarrito(); break;
+      case "5": finalizarCompra(); break;
+      case "0": console.log("👋 Adiós"); break;
+      case null: opcion = "0"; break;
+      default: console.log("❌ Opción inválida");
     }
   }
 }
 
-// EJECUTAR
 iniciarCarrito();
