@@ -1,4 +1,4 @@
-# 🛒 Proyecto Módulo 4: Carrito de Compras (Console App)
+# 🛒 Proyecto Módulo 4: Aplicación de consola "Carrito de Compras"
 
 ![Language](https://img.shields.io/badge/Lenguaje-JavaScript-yellow?style=flat&logo=javascript)
 ![Environment](https://img.shields.io/badge/Entorno-Navegador%20Consola-orange)
