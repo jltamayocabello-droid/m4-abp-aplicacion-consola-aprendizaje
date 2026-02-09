@@ -3,7 +3,6 @@
 ![Language](https://img.shields.io/badge/Lenguaje-JavaScript-yellow?style=flat&logo=javascript)
 ![Environment](https://img.shields.io/badge/Entorno-Navegador%20Consola-orange)
 
-
 Aplicación desarrollada en JavaScript (ES6) que simula un sistema de gestión de compras a través de la consola del navegador. Este proyecto forma parte de la evaluación del **Módulo 4: Fundamentos de Programación en JavaScript**.
 
 ## 📖 Descripción del Proyecto
@@ -49,19 +48,18 @@ Para probar este proyecto no necesitas instalar nada, solo un navegador web.
 5.  Pegar el código JavaScript y presionar `Enter`.
 6.  Seguir las instrucciones del menú emergente.
 
+## 📂 Estructura del Proyecto
 
-##📂 Estructura del Proyecto
-bash
+```bash
 ├── README.md          # Documentación del proyecto
-├── main.js          # Lógica principal de la aplicación
+├── main.js            # Lógica principal de la aplicación
 └── index.html         # (Opcional) Contenedor para vincular el script
 
+## 🔗 Repositorio GitHub
+Puedes ver el código fuente completo aquí:
+https://github.com/jltamayocabello-droid/m4-abp-aplicacion-consola-aprendizaje
 
-##Repositorio GitHub
-
-🔗 https://github.com/jltamayocabello-droid/m4-abp-aplicacion-consola-aprendizaje
-
-##✒️ Autor
+## ✒️ Autor
 
 **Jorge Tamayo**
 
