@@ -54,6 +54,7 @@ Para probar este proyecto no necesitas instalar nada, solo un navegador web.
 ├── README.md          # Documentación del proyecto
 ├── main.js            # Lógica principal de la aplicación
 └── index.html         # (Opcional) Contenedor para vincular el script
+```
 
 ## 🔗 Repositorio GitHub
 Puedes ver el código fuente completo aquí:
